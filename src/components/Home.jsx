@@ -8,9 +8,8 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      <About/>
-      <Services/>
-      <Contact/>
+      <About />
+      <Services />
     </div>
   );
 }

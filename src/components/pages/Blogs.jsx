@@ -3,8 +3,10 @@ import { CategoryProvider } from "../context/CategoryContext";
 import Category from "../Categories/Category";
 import Categories from "../Categories/Categories";
 import Blog from "../Blog/blog";
+import UseAuth from "../../api/useAuth";
 
 const Blogs = () => {
+  UseAuth();
   const [blogs, setBlogs] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);

@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
-
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import HtmlReactParser from "html-react-parser";
 const BlogCard = ({ blog }) => {
   console.log(blog.attributes.blogDescription.length);
   const truncateBlogDesc =
@@ -24,7 +26,18 @@ const BlogCard = ({ blog }) => {
           <h2 className="text-xl text-white font-semibold mb-2 overflow-ellipsis">
             {blog.attributes.blogTitle}
           </h2>
-          <BlocksRenderer content={blog.attributes.blogDescription} />
+          {/* <BlocksRenderer content={blog.attributes.blogDescription} /> */}
+          <Markdown
+            children={blog.attributes.blogDescription}
+            remarkPlugins={[remarkGfm]}
+          />
+        </div>
+        <div>
+          {blog.attributes.blogImages.data.map((image) => {
+            const image_url = "http://localhost:1337" + image.attributes.url;
+            console.log(image_url);
+            return <img src={image_url} alt="" />;
+          })}
         </div>
       </Link>
     </div>

@@ -203,8 +203,10 @@ ul li a:hover {
   padding: 2px 0px;
 }
 
-@media screen and (max-width: 1280px) {
-  .imageContainer {
-    display: none;
-  }
+.article-form {
+  padding: 22px;
+}
+
+.article-el {
+  padding: 15px;
 }
